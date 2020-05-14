@@ -40,7 +40,6 @@ class HSCoeff:
             for idx, site_p in enumerate(self.s.sites):
                 nn_sites = [nn_info[2] for nn_info in \
                     self.s.get_neighbors_in_shell(site_p.coords,r,0.2,include_index=True)]
-                for n in nn_sites:
-                    cj[jn] += self.spin[idx]*self.spin[n] 
+                cj[jn] += sum(self.spin[idx]*self.spin[n] for n in nn_sites)
             cj[jn] /= self.s.num_sites
         return cj
