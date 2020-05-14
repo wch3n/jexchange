@@ -25,9 +25,7 @@ class HSCoeff:
         while order > 0:
             rn += 0.4
             _nn = s.get_neighbors_in_shell(s.sites[0].coords,rn,0.2)
-            if len(_nn) == 0:
-                pass
-            else:
+            if len(_nn) > 0:
                 rns.append(rn)
                 order -= 1
             
